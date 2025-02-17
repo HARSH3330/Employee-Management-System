@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout - Employee Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .logout-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .home-button {
+            background: #1abc9c;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .home-button:hover {
+            background: #16a085;
+        }
+    </style>
+</head>
+<body>
+
+<div class="logout-container">
+    <h2>You Have Successfully Logged Out</h2>
+    <p>Thank you for using the Employee Management System.</p>
+    <a href="{{ url_for('index') }}" class="home-button">Return to Homepage</a>
+</div>
+
+</body>
+</html>

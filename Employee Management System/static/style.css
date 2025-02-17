@@ -1,0 +1,22 @@
+/* Basic CSS for the home page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    color: #333;
+    font-size: 36px;
+}
+
+p {
+    color: #555;
+    font-size: 20px;
+}

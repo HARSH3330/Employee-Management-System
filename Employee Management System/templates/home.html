@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Signikart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* General Styles */
+        body {
+            background-color: #004d00;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 850px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #ffeb3b;
+        }
+
+        p {
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* Button Styling */
+        .button-group {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffeb3b;
+            color: #004d00;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 8px;
+            margin: 10px;
+            transition: 0.3s;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background: #ffd700;
+            transform: scale(1.05);
+        }
+
+        /* Flash Message Styling */
+        .flashes {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .flashes li {
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .success { background-color: #4CAF50; }
+        .danger { background-color: #f44336; }
+        .warning { background-color: #ff9800; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🌿 Welcome to Signikart</h1>
+        <p>Discover a world of eco-friendly and sustainable products, handpicked to support a greener planet. Shop with a purpose and contribute to a better future.</p>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Navigation Buttons -->
+        <div class="button-group">
+            <a href="{{ url_for('index') }}" class="btn">🏠 Back to Index</a>
+            <a href="{{ url_for('register') }}" class="btn">Sign up</a>
+            <a href="{{ url_for('login') }}" class="btn"> Login</a>
+            <a href="{{ url_for('display_employees') }}">View Employees</a><br>
+        </div>
+    </div>
+
+</body>
+</html>

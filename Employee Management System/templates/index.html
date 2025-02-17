@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* General Styles */
+        body {
+            background-color: #228B22; /* Green background */
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            background: #145214;
+            color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #196619;
+            padding: 15px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 20px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            border-radius: 5px;
+        }
+
+        .menu a:hover {
+            background: #2ecc71;
+            transform: scale(1.1);
+        }
+
+        /* Content Box */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+            padding: 0 10px;
+        }
+
+        /* Call-to-Action Buttons */
+        .cta-buttons {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffeb3b;
+            color: #145214;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 8px;
+            margin: 10px;
+            transition: 0.3s ease;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background: #ffd700;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: #145214;
+            color: white;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>👨‍💼 Welcome to Employee Management System</h1>
+</header>
+
+<nav>
+    <ul class="menu">
+        <li><a href="{{ url_for('home') }}">🏠 Home</a></li>
+        {% if session["user_id"] %}
+            <li><a href="{{ url_for('logout') }}">🚪 Logout</a></li>
+        {% else %}
+            <li><a href="{{ url_for('login') }}">🔑 Login</a></li>
+            <li><a href="{{ url_for('register') }}">📝 Register</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+<div class="container">
+    <h2>📊 Manage Your Employees with Ease</h2>
+    <p>Our Employee Management System is designed to help you efficiently add, track, and manage your employees in just a few clicks. Whether you're a small business owner or a large corporation, our intuitive system ensures a seamless experience.</p>
+    
+    <p>Say goodbye to complex spreadsheets and hello to a smarter way of managing employee data. Sign up now and take control of your workforce effortlessly!</p>
+
+    <div class="cta-buttons">
+        <a href="{{ url_for('register') }}" class="btn">🚀 Get Started</a>
+        <a href="{{ url_for('login') }}" class="btn">🔑 Login Now</a>
+    </div>
+</div>
+
+<footer>
+    <p>© 2025 Employee Management System. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
